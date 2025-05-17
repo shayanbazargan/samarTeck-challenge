@@ -9,7 +9,8 @@ import * as directives from 'vuetify/directives'
 
 const myTheme = {
     colors: {
-
+        pry : '#E20054',
+        lightPry : '##FCE5EE',
     },
 }
 
