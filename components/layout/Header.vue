@@ -1,12 +1,11 @@
 <template>
-    <v-sheet class="py-2 px-4 f13 headerBoxShadow d-flex align-center " :height=" ScreenType === 'mobile'  ? '72' : '120'">
+    <v-sheet class="f13 headerBoxShadow d-flex align-center "
+             :height=" ScreenType === 'mobile'  ? '72' : '120'"
+             :class=" ScreenType === 'desktop' ? 'paddingContainerDesktop' : 'px-6'"
+    >
 
         <template v-if="ScreenType === 'desktop' ">
-            <v-spacer></v-spacer>
-            <v-spacer></v-spacer>
-            <v-spacer></v-spacer>
-
-            <div v-for="tab in tabs" :key="tab.slug">
+            <div v-for="(tab, i) in tabs" :key="i">
 
                 <div  @click="$router.push(tab.slug)" class="ms-5 pointer">
 
@@ -30,16 +29,15 @@
                     تماس
                     <v-icon class="ms-2" size="small"> mdi-phone</v-icon>
             </v-btn>
-            <v-spacer></v-spacer>
 
         </template>
 
         <template v-if="ScreenType === 'mobile' ">
-            <img src="/img/icons/app-bar.png"  class="pointer ms-5" />
+            <img src="/img/icons/app-bar.png"  class="pointer" />
 
             <v-spacer></v-spacer>
 
-            <img src="/img/icons/contact.png" class="pointer me-5" @click="$router.push('contactUs')"/>
+            <img src="/img/icons/contact.png" class="pointer" @click="$router.push('contactUs')"/>
 
         </template>
     </v-sheet>

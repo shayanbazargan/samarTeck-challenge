@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app class="bg-grey50">
         <Header/>
 
         <v-main class="pt-6">

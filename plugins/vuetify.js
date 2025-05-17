@@ -10,7 +10,11 @@ import * as directives from 'vuetify/directives'
 const myTheme = {
     colors: {
         pry : '#E20054',
-        lightPry : '##FCE5EE',
+        lightPry : '#FCE5EE',
+        grey50 : '#E9EDF5',
+        grey700 : '#445A74',
+        grey800 : '#30445B',
+        grey900 : '#253343',
     },
 }
 
