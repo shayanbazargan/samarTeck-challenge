@@ -18,7 +18,7 @@
                         color="pry"
                         class=" mt-5 mx-2 border16"
                         variant="outlined"
-                        @input="applyFilters()"
+                        @update:modelValue="applyFilters()"
                     >
                         <template v-slot:prepend-inner >
                             <v-icon color="pry">mdi-magnify</v-icon>

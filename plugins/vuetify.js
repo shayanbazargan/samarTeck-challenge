@@ -11,11 +11,14 @@ const myTheme = {
     colors: {
         pry : '#E20054',
         lightPry : '#FCE5EE',
+        grey25 : '#F5F7FA',
         grey50 : '#E9EDF5',
         grey500 : '#647E9A',
+        grey600 : '#57728E',
         grey700 : '#445A74',
         grey800 : '#30445B',
         grey900 : '#253343',
+        blue900 : '#0A2A51',
     },
 }
 
