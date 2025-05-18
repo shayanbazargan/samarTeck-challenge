@@ -12,6 +12,7 @@ const myTheme = {
         pry : '#E20054',
         lightPry : '#FCE5EE',
         grey50 : '#E9EDF5',
+        grey500 : '#647E9A',
         grey700 : '#445A74',
         grey800 : '#30445B',
         grey900 : '#253343',
