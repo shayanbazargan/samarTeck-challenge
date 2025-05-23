@@ -1,14 +1,15 @@
 <template>
-    <v-sheet class="f13 headerBoxShadow d-flex align-center "
-             :height=" ScreenType === 'mobile'  ? '72' : '120'"
-             :class=" ScreenType === 'desktop' ? 'paddingContainerDesktop' : 'px-6'"
+    <v-sheet class="f13 header_shadow d-flex align-center padding_container"
+             :height=" screenType === 'mobile'  ? '72' : '120'"
     >
 
-        <template v-if="ScreenType === 'desktop' ">
+        <template v-if="screenType === 'desktop' ">
+
+            <v-spacer></v-spacer>
+
             <div v-for="(tab, i) in tabs" :key="i">
 
                 <div  @click="$router.push(tab.slug)" class="ms-5 pointer">
-
                     <!-- index-->
                     <div v-if="$route.path === tab.slug || $route.path.includes(tab.slug)"  class="f15 fw700 text-pry">
                         <v-icon class="me-2" size="small" color="pry"> {{ tab.selectedIcon }} </v-icon>
@@ -25,6 +26,7 @@
             </div>
 
             <v-spacer></v-spacer>
+
             <v-btn class=" f14 fw700 ms-2 px-4  bg-pry border16 pointer">
                     تماس
                     <v-icon class="ms-2" size="small"> mdi-phone</v-icon>
@@ -32,7 +34,7 @@
 
         </template>
 
-        <template v-if="ScreenType === 'mobile' ">
+        <template v-if="screenType === 'mobile' ">
             <img src="/img/icons/app-bar.png"  class="pointer" />
 
             <v-spacer></v-spacer>
@@ -50,7 +52,7 @@ export default defineComponent({
 
     data(){
         return{
-            ScreenType: null,
+            screenType: null,
 
             tabs:[
                 {title: 'لیست محصولات', slug: '/products', icon: 'mdi-rhombus-split', selectedIcon: 'mdi-rhombus-split-outline' },
@@ -63,11 +65,11 @@ export default defineComponent({
 
     methods: {
         checkInnerWidth(){
-            if(window.innerWidth > 500 ){
-                this.ScreenType = 'desktop'
+            if(window.innerWidth > 360 ){
+                this.screenType = 'desktop'
             }
             else{
-                this.ScreenType = 'mobile'
+                this.screenType = 'mobile'
             }
         },
     },
@@ -80,8 +82,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
-.headerBoxShadow {
+.header_shadow {
     box-shadow: 0 6px 10px 0 #dadee6 ;
     backdrop-filter: blur(40px);
     border-radius: 0 0 16px 16px;

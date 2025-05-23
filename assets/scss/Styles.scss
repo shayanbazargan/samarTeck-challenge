@@ -1,6 +1,9 @@
+//fonts
+@import "./Fonts";
+
 body {
   letter-spacing: normal;
-  font-family: 'Yekan-Bakh', 'sans-serif';
+  font-family: 'YekanBakh-Regular', 'sans-serif';
 }
 html * {
   direction: rtl !important;
@@ -8,38 +11,23 @@ html * {
   letter-spacing: 0
 }
 
+.padding_container {
+  padding: 0 24px!important;
+  @media (min-width: 361px) {
+    padding: 0 80px!important;
+  }
+}
 .pointer{
   cursor: pointer !important;
 }
-.paddingContainerDesktop {
-  padding: 0 80px!important;
-}
-//Cards
-.CardSheet{
-  box-shadow: 0 2px 3px 0 #00000008;
-  border-radius: 24px !important;
-  padding: 16px;
-}
-.productCard{
-  box-shadow: 0 10px 40px 0 #0000000D;
-  border-radius: 24px !important;
-  border: 1px solid #E9EDF5;
-}
-.titleCard{
-  border-radius: 4px 16px 16px 4px !important;
-  padding: 12px 16px !important;
-  background-color: #F5F7FA !important;
-}
-.contentCard{
-  border-radius: 16px 4px 4px 16px !important;
-  padding: 12px 16px !important;
-  background-color: #F5F7FA !important;
-}
-
-
 .border16 {
   border-radius: 16px !important;
 }
+.Card_sheet{
+  box-shadow: 0 2px 3px 0 #00000008;
+  border-radius: 24px !important;
+}
+
 
 //fonts
 .f12{
@@ -75,4 +63,7 @@ html * {
 }
 .fw800{
   font-weight: 800 !important;
+}
+.fw900{
+  font-weight: 900 !important;
 }

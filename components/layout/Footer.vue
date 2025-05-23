@@ -1,34 +1,26 @@
 <template>
-    <v-sheet class="footerShadow footerBorder">
+    <v-sheet class="footer_shadow footer_border">
 
-        <v-row no-gutters
-               class="py-10"
-               :class=" ScreenType === 'desktop' ? 'paddingContainerDesktop' : 'px-6'"
-                >
-            <v-col v-if="ScreenType === 'desktop'"
-                   cols="4" class="d-flex align-end justify-center">
+        <v-row no-gutters class="py-10 padding_container">
+            <v-col    v-if="screenType === 'desktop'"
+                     class="mb-4 mb-lg-0 d-flex align-end justify-center"
+            >
                     <div class="f13 fw500 text-grey700 me-2">
-                        هفت روز هفته از ۸ صبح تا ۱۲ شب پاسخگو هستیم
+                        هفت روز هفته از ۸ صبح تا ۱۲ شب پاسخگو هستیم.
                     </div>
             </v-col>
 
-            <v-col :cols=" ScreenType === 'desktop' ? '8' : '12'">
+            <v-col cols="12" lg="8"  >
                 <v-row no-gutters>
-                    <v-col :cols=" ScreenType === 'desktop' ? '4' : '6'" v-for="(tab, i) in footer" :key="i" class="justify-end">
-                        <div class="f20 fw700 text-grey900 "
-                             :class=" ScreenType === 'desktop' ? 'mb-8' : 'mb-4'"
+                    <v-col :cols=" screenType === 'desktop' ? '4' : '6'" v-for="(tab, i) in footer" :key="i" class="justify-end">
+                        <div class="f20 fw700 text-grey900 mb-5"
                             >
                             {{tab.category}}
                         </div>
 
                         <div v-for="(tab, i) in tab.titles" :key="i"
-                             class="f13 fw500  pointer d-flex align-center"
-                             :class="{
-                                'mt-4': ScreenType === 'desktop',
-                                'mb-2': ScreenType !== 'desktop',
-                                'text-pry': activeTitle === tab.title,
-                                'text-grey800': activeTitle !== tab.title
-                              }"
+                             class="f13 fw500  pointer d-flex align-center mb-4 "
+                             :class="{'text-pry': activeTitle === tab.title, 'text-grey800': activeTitle !== tab.title}"
                              @click="setActiveTitle(tab.title)"
                             >
                             <img v-if="tab.icon" :src="tab.icon"  class="pointer me-2" />
@@ -42,14 +34,13 @@
 
 <!-- second section-->
         <v-row no-gutters
-               class=" footerBorder bg-grey50 py-7"
-               :class=" ScreenType === 'desktop' ? 'paddingContainerDesktop' : 'px-6'"
+               class="padding_container footer_border bg-grey50 py-7"
         >
 
-            <v-col v-if="ScreenType === 'desktop'" cols="4">
+            <v-col v-if="screenType === 'desktop'" cols="4">
             </v-col>
 
-            <v-col :cols=" ScreenType === 'desktop' ? '8' : '12'">
+            <v-col :cols=" screenType === 'desktop' ? '8' : '12'">
                 <v-row no-gutters class="d-flex align-center">
 
                     <v-col >
@@ -61,9 +52,8 @@
                         </div>
                     </v-col>
 
-                    <v-col class="d-flex "
-                         :class=" ScreenType === 'desktop' ? 'justify-end' : 'justify-center mt-4'"
-
+                    <v-col class="d-flex mt-4"
+                         :class=" screenType === 'mobile' ? 'justify-center' : 'justify-end'"
                     >
                         <v-sheet class="pointer rounded pa-3" >
                             <img src="/img/icons/Enamad2.png"/>
@@ -88,7 +78,8 @@ export default defineComponent({
 
     data(){
         return{
-            ScreenType: null,
+            screenType: null,
+            activeTitle: null,
 
             footer:[
                 {category: 'لیست محصولات', titles: [{title: 'درباره ما'},{title: 'بلاگ'},{title: 'تماس با ما'}, {title: 'خدمات پس از فروش'}]},
@@ -102,25 +93,25 @@ export default defineComponent({
                 '/img/icons/instagram.png',
                 '/img/icons/telegram.png',
             ],
-            Enamads: [
-                '/img/icons/Enamad2.png',
-                '/img/icons/Enamads.png',
-            ],
-            activeTitle: null
+            enamads: [
+                '/img/icons/enamad2.png',
+                '/img/icons/enamad.png',
+            ]
         }
     },
 
     methods: {
-        checkInnerWidth(){
-            if(window.innerWidth > 500 ){
-                this.ScreenType = 'desktop'
-            }
-            else{
-                this.ScreenType = 'mobile'
-            }
-        },
         setActiveTitle(title) {
             this.activeTitle = title;
+        },
+
+        checkInnerWidth(){
+            if(window.innerWidth > 1280 ){
+                this.screenType = 'desktop'
+            }
+            else{
+                this.screenType = 'mobile'
+            }
         }
     },
 
@@ -132,10 +123,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.footerShadow{
+.footer_shadow{
     box-shadow: 0 4px 16px 0 #dadee6 ;
 }
-.footerBorder{
+.footer_border{
     border-radius:16px 16px 0 0 ;
 }
 </style>
