@@ -33,17 +33,6 @@ export default defineNuxtPlugin((nuxtApp) => {
                 myTheme,
             },
         },
-        // only for checking resolution via v-if="$vuetify.display.mobile"
-        /*display: {
-            mobileBreakpoint: 'sm',
-            thresholds: {
-                xs: 0,
-                sm: 360,
-                md: 960,
-                lg: 1280,
-                xl: 1920,
-            },
-        },*/
     })
     nuxtApp.vueApp.use(vuetify)
 })

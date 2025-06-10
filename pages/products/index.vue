@@ -103,18 +103,6 @@ export default {
         }
     },
 
-    computed: {
-        countSortingActive() {
-            if(this.sorting) {
-                return this.sorting.includes('count');
-            }
-        },
-        ratingSortingActive() {
-            if(this.sorting){
-                return this.sorting.includes('rating');
-            }
-        },
-    },
 
     methods:{
         applyFilters(){
